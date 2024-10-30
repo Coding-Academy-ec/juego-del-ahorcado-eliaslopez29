@@ -35,37 +35,36 @@ AHORCADO_DIBUJO = [
     """
 ]
 
+
 def seleccionar_palabra():
     """
-    Esta función debe seleccionar y devolver una palabra aleatoria de la lista.
-    Bug: Asegúrate de que la función realmente devuelve una palabra.
+    Selecciona y devuelve una palabra aleatoria de la lista.
     """
     palabras = ['python', 'programacion', 'desarrollo', 'ahorcado']
-    return random.choice(palabras_2)  # Este return está incorrecto.
+    return random.choice(palabras)
+
 
 def mostrar_progreso(palabra, letras_adivinadas):
     """
-    Esta función debe devolver una representación del progreso del jugador,
+    Devuelve una representación del progreso del jugador,
     mostrando letras adivinadas y guiones bajos para las letras no adivinadas.
-    Bug: Si la función no devuelve el progreso correctamente, el juego no funcionará.
     """
-    # Falta un return. Asegúrate de que se retorne el progreso correctamente.
-    progreso = ' '.join(letra if letra in letras_adivinadas else '_' for letra in palabra)
-    return progreso_2  # Este return está incorrecto.
+    progreso = ' '.join(
+        letra if letra in letras_adivinadas else '_' for letra in palabra)
+    return progreso
+
 
 def verificar_letra(letra, palabra):
     """
-    Esta función debe verificar si la letra está en la palabra.
-    Bug: Asegúrate de que la función devuelve True o False correctamente.
+    Verifica si la letra está en la palabra.
     """
-    # Si no hay un return aquí, no se verificará la letra correctamente.
-    return letra in palabras  # Este return está incorrecto.
+    return letra in palabra
+
 
 def juego_ahorcado():
     """
-    Esta es la función principal del juego del ahorcado.
-    Debe manejar el flujo del juego, solicitando letras y controlando los intentos.
-    Bug: Asegúrate de que el mensaje final se imprima correctamente cuando el jugador gana.
+    Función principal del juego del ahorcado.
+    Maneja el flujo del juego, solicitando letras y controlando los intentos.
     """
     palabra = seleccionar_palabra()
     letras_adivinadas = []
@@ -85,13 +84,14 @@ def juego_ahorcado():
             print("Incorrecto 😢")
 
         # Comprobamos si se han adivinado todas las letras de la palabra.
-        # Bug: Asegúrate de que se está evaluando correctamente si el juego se ha ganado.
         if all(letra in letras_adivinadas for letra in palabra):
-            print(f"¡Felicidades, adivinaste la palabra: {palabra}!")  # Este print está correcto.
+            print(f"¡Felicidades, adivinaste la palabra: {palabra}!")
             break
     else:
-        print(AHORCADO_DIBUJO[max_intentos])  # Este print está correcto.
-        print(f"Perdiste. La palabra era: {palabra}")  # Este print está correcto.
+        print(AHORCADO_DIBUJO[max_intentos])
+        print(f"Perdiste. La palabra era: {palabra}")
+
 
 if __name__ == "__main__":
     juego_ahorcado()
+
